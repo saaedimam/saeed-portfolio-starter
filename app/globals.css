@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #ffffff;
+  --fg: #0B1F3A;
+  --navy: #0B1F3A;
+  --charcoal: #22272A;
+  --teal: #00A3B4;
+  --warm: #E9ECEF;
+}
+
+.dark {
+  --bg: #0C1116;
+  --fg: #E9ECEF;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-plus-jakarta-sans), system-ui, sans-serif;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-4;
+}
+
+/* Typography utilities */
+.font-heading {
+  font-family: var(--font-sora), system-ui, sans-serif;
+}
+
+/* Prose styles */
+.prose {
+  @apply text-charcoal dark:text-warm;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  @apply font-heading text-navy dark:text-white;
+}
+
+.prose p code {
+  @apply bg-warm/60 dark:bg-charcoal/60 px-1 rounded text-sm;
+}
+
+.prose pre {
+  @apply bg-charcoal/5 dark:bg-charcoal/20 rounded-lg;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-teal/30 pl-4 italic;
+}
+
+/* Focus styles */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-teal;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

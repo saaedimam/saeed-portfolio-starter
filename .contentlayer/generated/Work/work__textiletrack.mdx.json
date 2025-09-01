@@ -1,0 +1,25 @@
+{
+  "title": "TextileTrack — Real-time RFID Tracking",
+  "date": "2025-09-01T00:00:00.000Z",
+  "summary": "Mobile capture → WebSocket live board → Supabase sync; offline friendly.",
+  "tags": [
+    "RFID",
+    "Mobile",
+    "Supabase"
+  ],
+  "featured": true,
+  "body": {
+    "raw": "\nA focused kit for uniforms/linens, multi-site deployment, and live dashboards.\n",
+    "code": "var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var x=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},s=(e,t,n,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of f(t))!b.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(i=m(t,o))||i.enumerable});return e};var y=(e,t,n)=>(n=e!=null?d(p(e)):{},s(t||!e||!e.__esModule?r(n,\"default\",{value:e,enumerable:!0}):n,e)),M=e=>s(r({},\"__esModule\",{value:!0}),e);var u=x((R,c)=>{c.exports=_jsx_runtime});var D={};j(D,{default:()=>k,frontmatter:()=>_});var a=y(u()),_={title:\"TextileTrack \\u2014 Real-time RFID Tracking\",date:\"2025-09-01\",summary:\"Mobile capture \\u2192 WebSocket live board \\u2192 Supabase sync; offline friendly.\",tags:[\"RFID\",\"Mobile\",\"Supabase\"],featured:!0};function l(e){let t=Object.assign({p:\"p\"},e.components);return(0,a.jsx)(t.p,{children:\"A focused kit for uniforms/linens, multi-site deployment, and live dashboards.\"})}function g(e={}){let{wrapper:t}=e.components||{};return t?(0,a.jsx)(t,Object.assign({},e,{children:(0,a.jsx)(l,e)})):l(e)}var k=g;return M(D);})();\n;return Component;"
+  },
+  "_id": "work/textiletrack.mdx",
+  "_raw": {
+    "sourceFilePath": "work/textiletrack.mdx",
+    "sourceFileName": "textiletrack.mdx",
+    "sourceFileDir": "work",
+    "contentType": "mdx",
+    "flattenedPath": "work/textiletrack"
+  },
+  "type": "Work",
+  "url": "/work/textiletrack"
+}

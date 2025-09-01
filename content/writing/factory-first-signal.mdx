@@ -1,0 +1,73 @@
+---
+title: "Factory-First Signal Architecture"
+date: "2025-01-15"
+summary: "A playbook for building RFID systems that scale from factory floor to cloud."
+tags: ["RFID","Architecture","IoT","Signal Processing"]
+---
+
+# Factory-First Signal Architecture
+
+The textile industry is waking up to the power of real-time data. But most RFID implementations fail because they treat the factory as an afterthought.
+
+## The Problem
+
+Traditional approaches start with the cloud and work backwards:
+1. Design the API first
+2. Figure out how to get data there
+3. Hope the factory can keep up
+
+This creates fragile systems that break under real-world conditions.
+
+## The Factory-First Approach
+
+Start with the factory floor and build up:
+
+### 1. Edge Processing
+- Process signals at the source
+- Handle network interruptions gracefully
+- Provide immediate feedback to operators
+
+### 2. Reliable Sync
+- Queue-based architecture for offline resilience
+- Conflict resolution for multi-site deployments
+- Incremental sync to minimize bandwidth
+
+### 3. Real-time Dashboard
+- WebSocket connections for live updates
+- Progressive enhancement for slow connections
+- Mobile-first design for floor workers
+
+## Implementation
+
+```typescript
+// Edge device signal processing
+class RFIDProcessor {
+  async processSignal(tag: string, timestamp: number) {
+    // Local validation and processing
+    const event = await this.validateAndProcess(tag, timestamp);
+    
+    // Queue for sync
+    await this.queueForSync(event);
+    
+    // Immediate local feedback
+    this.updateLocalDisplay(event);
+  }
+}
+```
+
+## Key Principles
+
+1. **Resilience First**: Design for network failures
+2. **Local Feedback**: Operators need immediate response
+3. **Progressive Enhancement**: Works offline, better online
+4. **Mobile Native**: Factory workers use phones, not laptops
+
+## Results
+
+Systems built this way achieve:
+- 99.9% uptime even with poor connectivity
+- Sub-second response times for operators
+- Seamless multi-site synchronization
+- Easy maintenance and updates
+
+The factory floor isn't just a data source—it's your primary user interface.

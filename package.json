@@ -1,0 +1,57 @@
+{
+  "name": "saaed-portfolio",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Saaed Imam's portfolio - Platform Architect & Founder building connected factories & clean design systems",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --ext ts,tsx --fix",
+    "type-check": "tsc --noEmit",
+    "postinstall": "echo 'Dependencies installed successfully'"
+  },
+  "dependencies": {
+    "@emotion/is-prop-valid": "^1.3.1",
+    "@vercel/og": "0.6.3",
+    "autoprefixer": "10.4.19",
+    "clsx": "^2.1.1",
+    "contentlayer": "0.3.4",
+    "date-fns": "^3.6.0",
+    "framer-motion": "11.2.6",
+    "lucide-react": "0.468.0",
+    "next": "13.5.6",
+    "next-contentlayer": "0.3.4",
+
+    "next-themes": "0.3.0",
+    "postcss": "8.4.38",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "reading-time": "1.5.0",
+    "rehype-autolink-headings": "7.1.0",
+    "rehype-slug": "6.0.0",
+    "remark-gfm": "4.0.0",
+    "tailwind-merge": "2.5.2",
+    "tailwindcss": "3.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "20.10.6",
+    "@types/react": "18.2.66",
+    "@types/react-dom": "18.2.22",
+    "eslint": "8.57.0",
+    "eslint-config-next": "13.5.6",
+    "typescript": "5.5.4"
+  },
+  "keywords": [
+    "portfolio",
+    "RFID",
+    "textile",
+    "factory automation",
+    "IoT",
+    "Next.js",
+    "FastAPI",
+    "Supabase"
+  ],
+  "author": "Saaed Imam <sayedimam.fahim@gmail.com>",
+  "license": "MIT"
+}

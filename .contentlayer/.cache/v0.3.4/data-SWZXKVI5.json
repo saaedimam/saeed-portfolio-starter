@@ -1,0 +1,95 @@
+{
+  "cacheItemsMap": {
+    "work/stitchos.mdx": {
+      "document": {
+        "title": "StitchOS — The Connected Loom",
+        "date": "2025-09-01T00:00:00.000Z",
+        "summary": "SaaS + IoT RFID platform: Edge Ingest → Core API → Ledger → Trace → Console.",
+        "tags": [
+          "SaaS",
+          "RFID",
+          "Next.js",
+          "FastAPI",
+          "Supabase"
+        ],
+        "featured": true,
+        "body": {
+          "raw": "\n## 1. Problem\nDisconnected production data, lost garments, and no live WIP view.\n\n## 2. Approach\nModular architecture with secure effects and real-time sync.\n\n## 3. System\nEdge → Core → Ledger → Trace → Console with WebSockets and RLS.\n\n## 4. Outcome\nTargets: save 15–20 hrs/week; reduce loss 30–40%; faster onboarding.\n\n## 5. Links\n- Repo (private) · Deck (PDF) · Demo (request access)\n",
+          "code": "var Component=(()=>{var l=Object.create;var c=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),x=(n,e)=>{for(var t in e)c(n,t,{get:e[t],enumerable:!0})},s=(n,e,t,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let a of u(e))!f.call(n,a)&&a!==t&&c(n,a,{get:()=>e[a],enumerable:!(o=m(e,a))||o.enumerable});return n};var S=(n,e,t)=>(t=n!=null?l(p(n)):{},s(e||!n||!n.__esModule?c(t,\"default\",{value:n,enumerable:!0}):t,n)),b=n=>s(c({},\"__esModule\",{value:!0}),n);var d=g((k,i)=>{i.exports=_jsx_runtime});var I={};x(I,{default:()=>C,frontmatter:()=>j});var r=S(d()),j={title:\"StitchOS \\u2014 The Connected Loom\",date:\"2025-09-01\",summary:\"SaaS + IoT RFID platform: Edge Ingest \\u2192 Core API \\u2192 Ledger \\u2192 Trace \\u2192 Console.\",tags:[\"SaaS\",\"RFID\",\"Next.js\",\"FastAPI\",\"Supabase\"],featured:!0};function h(n){let e=Object.assign({h2:\"h2\",a:\"a\",p:\"p\",ul:\"ul\",li:\"li\"},n.components);return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h2,{id:\"1-problem\",children:(0,r.jsx)(e.a,{href:\"#1-problem\",children:\"1. Problem\"})}),`\n`,(0,r.jsx)(e.p,{children:\"Disconnected production data, lost garments, and no live WIP view.\"}),`\n`,(0,r.jsx)(e.h2,{id:\"2-approach\",children:(0,r.jsx)(e.a,{href:\"#2-approach\",children:\"2. Approach\"})}),`\n`,(0,r.jsx)(e.p,{children:\"Modular architecture with secure effects and real-time sync.\"}),`\n`,(0,r.jsx)(e.h2,{id:\"3-system\",children:(0,r.jsx)(e.a,{href:\"#3-system\",children:\"3. System\"})}),`\n`,(0,r.jsx)(e.p,{children:\"Edge \\u2192 Core \\u2192 Ledger \\u2192 Trace \\u2192 Console with WebSockets and RLS.\"}),`\n`,(0,r.jsx)(e.h2,{id:\"4-outcome\",children:(0,r.jsx)(e.a,{href:\"#4-outcome\",children:\"4. Outcome\"})}),`\n`,(0,r.jsx)(e.p,{children:\"Targets: save 15\\u201320 hrs/week; reduce loss 30\\u201340%; faster onboarding.\"}),`\n`,(0,r.jsx)(e.h2,{id:\"5-links\",children:(0,r.jsx)(e.a,{href:\"#5-links\",children:\"5. Links\"})}),`\n`,(0,r.jsxs)(e.ul,{children:[`\n`,(0,r.jsx)(e.li,{children:\"Repo (private) \\xB7 Deck (PDF) \\xB7 Demo (request access)\"}),`\n`]})]})}function D(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,Object.assign({},n,{children:(0,r.jsx)(h,n)})):h(n)}var C=D;return b(I);})();\n;return Component;"
+        },
+        "_id": "work/stitchos.mdx",
+        "_raw": {
+          "sourceFilePath": "work/stitchos.mdx",
+          "sourceFileName": "stitchos.mdx",
+          "sourceFileDir": "work",
+          "contentType": "mdx",
+          "flattenedPath": "work/stitchos"
+        },
+        "type": "Work",
+        "url": "/work/stitchos"
+      },
+      "documentHash": "1756742932000",
+      "hasWarnings": false,
+      "documentTypeName": "Work"
+    },
+    "work/textiletrack.mdx": {
+      "document": {
+        "title": "TextileTrack — Real-time RFID Tracking",
+        "date": "2025-09-01T00:00:00.000Z",
+        "summary": "Mobile capture → WebSocket live board → Supabase sync; offline friendly.",
+        "tags": [
+          "RFID",
+          "Mobile",
+          "Supabase"
+        ],
+        "featured": true,
+        "body": {
+          "raw": "\nA focused kit for uniforms/linens, multi-site deployment, and live dashboards.\n",
+          "code": "var Component=(()=>{var d=Object.create;var r=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var p=Object.getPrototypeOf,b=Object.prototype.hasOwnProperty;var x=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports),j=(e,t)=>{for(var n in t)r(e,n,{get:t[n],enumerable:!0})},s=(e,t,n,i)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of f(t))!b.call(e,o)&&o!==n&&r(e,o,{get:()=>t[o],enumerable:!(i=m(t,o))||i.enumerable});return e};var y=(e,t,n)=>(n=e!=null?d(p(e)):{},s(t||!e||!e.__esModule?r(n,\"default\",{value:e,enumerable:!0}):n,e)),M=e=>s(r({},\"__esModule\",{value:!0}),e);var u=x((R,c)=>{c.exports=_jsx_runtime});var D={};j(D,{default:()=>k,frontmatter:()=>_});var a=y(u()),_={title:\"TextileTrack \\u2014 Real-time RFID Tracking\",date:\"2025-09-01\",summary:\"Mobile capture \\u2192 WebSocket live board \\u2192 Supabase sync; offline friendly.\",tags:[\"RFID\",\"Mobile\",\"Supabase\"],featured:!0};function l(e){let t=Object.assign({p:\"p\"},e.components);return(0,a.jsx)(t.p,{children:\"A focused kit for uniforms/linens, multi-site deployment, and live dashboards.\"})}function g(e={}){let{wrapper:t}=e.components||{};return t?(0,a.jsx)(t,Object.assign({},e,{children:(0,a.jsx)(l,e)})):l(e)}var k=g;return M(D);})();\n;return Component;"
+        },
+        "_id": "work/textiletrack.mdx",
+        "_raw": {
+          "sourceFilePath": "work/textiletrack.mdx",
+          "sourceFileName": "textiletrack.mdx",
+          "sourceFileDir": "work",
+          "contentType": "mdx",
+          "flattenedPath": "work/textiletrack"
+        },
+        "type": "Work",
+        "url": "/work/textiletrack"
+      },
+      "documentHash": "1756742932000",
+      "hasWarnings": false,
+      "documentTypeName": "Work"
+    },
+    "writing/hello-world.mdx": {
+      "document": {
+        "title": "Factory Tech Notes — Getting to First Signal",
+        "date": "2025-09-01T00:00:00.000Z",
+        "summary": "A short playbook to ship telemetry and value within 2 weeks.",
+        "tags": [
+          "Ops",
+          "RFID",
+          "Playbook"
+        ],
+        "body": {
+          "raw": "\n- Identify one flow (Cut → Issue → Station → Finish).\n- Instrument minimally with UHF tags and checkpoints.\n- Surface a single live board. Improve weekly.\n",
+          "code": "var Component=(()=>{var m=Object.create;var s=Object.defineProperty;var d=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var x=Object.getPrototypeOf,y=Object.prototype.hasOwnProperty;var f=(n,t)=>()=>(t||n((t={exports:{}}).exports,t),t.exports),p=(n,t)=>{for(var e in t)s(n,e,{get:t[e],enumerable:!0})},r=(n,t,e,l)=>{if(t&&typeof t==\"object\"||typeof t==\"function\")for(let o of h(t))!y.call(n,o)&&o!==e&&s(n,o,{get:()=>t[o],enumerable:!(l=d(t,o))||l.enumerable});return n};var g=(n,t,e)=>(e=n!=null?m(x(n)):{},r(t||!n||!n.__esModule?s(e,\"default\",{value:n,enumerable:!0}):e,n)),j=n=>r(s({},\"__esModule\",{value:!0}),n);var c=f((I,a)=>{a.exports=_jsx_runtime});var k={};p(k,{default:()=>b,frontmatter:()=>w});var i=g(c()),w={title:\"Factory Tech Notes \\u2014 Getting to First Signal\",date:\"2025-09-01\",summary:\"A short playbook to ship telemetry and value within 2 weeks.\",tags:[\"Ops\",\"RFID\",\"Playbook\"]};function u(n){let t=Object.assign({ul:\"ul\",li:\"li\"},n.components);return(0,i.jsxs)(t.ul,{children:[`\n`,(0,i.jsx)(t.li,{children:\"Identify one flow (Cut \\u2192 Issue \\u2192 Station \\u2192 Finish).\"}),`\n`,(0,i.jsx)(t.li,{children:\"Instrument minimally with UHF tags and checkpoints.\"}),`\n`,(0,i.jsx)(t.li,{children:\"Surface a single live board. Improve weekly.\"}),`\n`]})}function _(n={}){let{wrapper:t}=n.components||{};return t?(0,i.jsx)(t,Object.assign({},n,{children:(0,i.jsx)(u,n)})):u(n)}var b=_;return j(k);})();\n;return Component;"
+        },
+        "_id": "writing/hello-world.mdx",
+        "_raw": {
+          "sourceFilePath": "writing/hello-world.mdx",
+          "sourceFileName": "hello-world.mdx",
+          "sourceFileDir": "writing",
+          "contentType": "mdx",
+          "flattenedPath": "writing/hello-world"
+        },
+        "type": "Post",
+        "url": "/writing/hello-world"
+      },
+      "documentHash": "1756742932000",
+      "hasWarnings": false,
+      "documentTypeName": "Post"
+    }
+  }
+}

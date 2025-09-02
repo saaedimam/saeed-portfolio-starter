@@ -31,6 +31,20 @@ export interface Post {
   };
 }
 
+export interface Product {
+  _id: string;
+  _raw: {
+    flattenedPath: string;
+  };
+  title: string;
+  summary: string;
+  tags?: string[];
+  url: string;
+  body: {
+    html: string;
+  };
+}
+
 // Mock data for now
 export const allWorks: Work[] = [
   {
@@ -119,6 +133,100 @@ export const allWorks: Work[] = [
         <h2>Links</h2>
         <p>- Live site: <a href="https://ktl.com">ktl.com</a></p>
         <p>- Case study: Detailed performance metrics</p>
+      `
+    }
+  }
+];
+
+export const allProducts: Product[] = [
+  {
+    _id: "product-stitchos",
+    _raw: { flattenedPath: "products/stitchos" },
+    title: "StitchOS",
+    summary: "RFID + SaaS platform for textiles. Real-time production tracking, loss reduction, and factory automation.",
+    tags: ["Next.js", "FastAPI", "Supabase", "RFID"],
+    url: "/products/stitchos",
+    body: {
+      html: `
+        <p>RFID + SaaS platform for textiles. Real-time production tracking, loss reduction, and factory automation.</p>
+      `
+    }
+  },
+  {
+    _id: "product-textiletrack",
+    _raw: { flattenedPath: "products/textiletrack" },
+    title: "TextileTrack",
+    summary: "Live RFID scanning with WebSocket dashboard and Supabase sync. Offline-friendly mobile capture.",
+    tags: ["Mobile", "RFID", "Supabase", "WebSocket"],
+    url: "/products/textiletrack",
+    body: {
+      html: `
+        <p>Live RFID scanning with WebSocket dashboard and Supabase sync. Offline-friendly mobile capture.</p>
+      `
+    }
+  },
+  {
+    _id: "product-weft-lang",
+    _raw: { flattenedPath: "products/weft-lang" },
+    title: "Weft (Lang)",
+    summary: "Security-first language for StitchOS effects. LLVM backend with WASM compilation.",
+    tags: ["LLVM", "WASM", "VM", "Security"],
+    url: "/products/weft-lang",
+    body: {
+      html: `
+        <p>Security-first language for StitchOS effects. LLVM backend with WASM compilation.</p>
+      `
+    }
+  },
+  {
+    _id: "product-quickbill",
+    _raw: { flattenedPath: "products/quickbill" },
+    title: "QuickBill",
+    summary: "Your Pocket Accountant — mobile accounting app with offline sync and receipt scanning.",
+    tags: ["Flutter", "Supabase", "Mobile"],
+    url: "/products/quickbill",
+    body: {
+      html: `
+        <p>Your Pocket Accountant — mobile accounting app with offline sync and receipt scanning.</p>
+      `
+    }
+  },
+  {
+    _id: "product-cartcount",
+    _raw: { flattenedPath: "products/cartcount" },
+    title: "CartCount",
+    summary: "Inventory management for retail. Real-time stock tracking with RFID integration.",
+    tags: ["Next.js", "RFID", "Retail"],
+    url: "/products/cartcount",
+    body: {
+      html: `
+        <p>Inventory management for retail. Real-time stock tracking with RFID integration.</p>
+      `
+    }
+  },
+  {
+    _id: "product-stryv",
+    _raw: { flattenedPath: "products/stryv" },
+    title: "STRYV",
+    summary: "Sustainable brand platform. Carbon tracking, supply chain transparency, and impact reporting.",
+    tags: ["Next.js", "Sustainability", "Analytics"],
+    url: "/products/stryv",
+    body: {
+      html: `
+        <p>Sustainable brand platform. Carbon tracking, supply chain transparency, and impact reporting.</p>
+      `
+    }
+  },
+  {
+    _id: "product-ecotenna",
+    _raw: { flattenedPath: "products/ecotenna" },
+    title: "EcoTenna",
+    summary: "Environmental monitoring system. IoT sensors for air quality, temperature, and humidity tracking.",
+    tags: ["IoT", "Sensors", "Environmental"],
+    url: "/products/ecotenna",
+    body: {
+      html: `
+        <p>Environmental monitoring system. IoT sensors for air quality, temperature, and humidity tracking.</p>
       `
     }
   }

@@ -312,11 +312,11 @@ export default function AboutPage() {
 
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
-              Let's Work Together
+              Let&apos;s Work Together
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Whether you need an RFID platform, sustainable brand development, or digital transformation consulting, 
-              I'm here to help bring your vision to life.
+              I&apos;m here to help bring your vision to life.
             </p>
             
             <Link

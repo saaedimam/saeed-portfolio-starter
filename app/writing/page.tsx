@@ -1,4 +1,5 @@
-import { Metadata } from 'next'
+'use client'
+
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import MotionSection from '@/components/MotionSection'
@@ -6,14 +7,7 @@ import Link from 'next/link'
 import { ArrowLeft, Calendar, Clock, ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 
-export const metadata: Metadata = {
-  title: 'Writing - Saaed Imam',
-  description: 'Articles and insights on factory-first signal processing, sustainable manufacturing, and the future of connected textiles.',
-  openGraph: {
-    title: 'Writing - Saaed Imam',
-    description: 'Articles and insights on factory-first signal processing, sustainable manufacturing, and the future of connected textiles.',
-  },
-}
+
 
 // Writing data
 const articles = [
@@ -265,8 +259,8 @@ export default function WritingPage() {
               Have a Topic in Mind?
             </h2>
             <p className="text-xl text-fg/70 dark:text-dark-fg/70 mb-8 max-w-2xl mx-auto">
-              I'm always interested in writing about new challenges and solutions in manufacturing, 
-              IoT, and sustainable business. Let me know what you'd like to read about.
+              I&apos;m always interested in writing about new challenges and solutions in manufacturing, 
+              IoT, and sustainable business. Let me know what you&apos;d like to read about.
             </p>
             
             <Link

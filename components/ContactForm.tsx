@@ -175,7 +175,7 @@ export default function ContactForm() {
               className="flex items-center space-x-3 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl text-green-800 dark:text-green-200"
             >
               <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />
-              <span>Message sent successfully! I'll get back to you within 24 hours.</span>
+              <span>Message sent successfully! I&apos;ll get back to you within 24 hours.</span>
             </motion.div>
           )}
 

@@ -17,6 +17,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://saaedimam.com"),
   title: {
     default: "Saaed Imam — Platform Architect & Founder",
     template: "%s | Saaed Imam"

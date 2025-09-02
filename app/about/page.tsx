@@ -62,10 +62,6 @@ export default function Page() {
 
       <div className="border-t border-charcoal/10 dark:border-warm/10 pt-8">
         <h2 className="text-2xl font-heading font-semibold text-navy dark:text-white mb-4">Get in Touch</h2>
-          <p className="text-charcoal/70 dark:text-warm/70 mb-4">
-            Interested in RFID systems, factory automation, or building connected products?
-            Let&apos;s discuss how we can work together.
-          </p>
         <a 
           href="/contact" 
           className="inline-flex items-center px-5 py-3 rounded-2xl bg-teal text-white shadow-soft hover:bg-teal/90 transition-colors"

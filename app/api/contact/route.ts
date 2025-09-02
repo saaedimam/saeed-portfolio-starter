@@ -1,56 +1,107 @@
-import { rateLimit } from "@/lib/rate-limit";
+import { NextRequest, NextResponse } from 'next/server'
 
-export async function POST(req: Request) {
+// Simple in-memory rate limiting
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>()
+
+const RATE_LIMIT_WINDOW = 60 * 1000 // 1 minute
+const MAX_REQUESTS = 5 // 5 requests per minute
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now()
+  const record = rateLimitMap.get(ip)
+  
+  if (!record) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW })
+    return false
+  }
+  
+  if (now > record.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW })
+    return false
+  }
+  
+  if (record.count >= MAX_REQUESTS) {
+    return true
+  }
+  
+  record.count++
+  return false
+}
+
+export async function POST(request: NextRequest) {
   try {
-    const body = await req.json().catch(() => null) as any;
+    // Get client IP
+    const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown'
     
-    // Basic validation
-    if (!body?.email || !body?.message || !body?.name) {
-      return new Response(JSON.stringify({ ok: false, error: "Missing required fields" }), { 
-        status: 400, 
-        headers: { "Content-Type": "application/json" } 
-      });
+    // Check rate limit
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again later.' },
+        { status: 429 }
+      )
     }
-
-    // Honeypot check
-    if (body.website) {
-      return new Response(JSON.stringify({ ok: false, error: "Spam detected" }), { 
-        status: 400, 
-        headers: { "Content-Type": "application/json" } 
-      });
-    }
-
-    // Rate limiting
-    const clientIP = req.headers.get("x-forwarded-for") || req.headers.get("x-real-ip") || "unknown";
-    const rateLimitResult = rateLimit(clientIP, 5, 60000); // 5 requests per minute
     
-    if (!rateLimitResult.success) {
-      return new Response(JSON.stringify({ ok: false, error: "Too many requests" }), { 
-        status: 429, 
-        headers: { "Content-Type": "application/json" } 
-      });
+    const body = await request.json()
+    
+    // Honeypot check - if company field is filled, reject
+    if (body.company && body.company.trim() !== '') {
+      return NextResponse.json(
+        { error: 'Invalid request' },
+        { status: 400 }
+      )
     }
-
-    // TODO: Integrate with Resend/SMTP here
-    // For now, just log the contact form submission
-    console.log("Contact form submission:", {
-      name: body.name,
-      email: body.email,
-      message: body.message,
-      timestamp: new Date().toISOString(),
-      ip: clientIP
-    });
-
-    return new Response(JSON.stringify({ ok: true }), { 
-      status: 200, 
-      headers: { "Content-Type": "application/json" } 
-    });
+    
+    // Validate required fields
+    const { name, email, message } = body
+    
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      )
+    }
+    
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Invalid email format' },
+        { status: 400 }
+      )
+    }
+    
+    // Here you would typically:
+    // 1. Send email notification
+    // 2. Store in database
+    // 3. Integrate with CRM
+    // 4. Send confirmation email
+    
+    // For now, just log the contact request
+    console.log('Contact form submission:', {
+      name,
+      email,
+      message: message.substring(0, 100) + '...',
+      ip,
+      timestamp: new Date().toISOString()
+    })
+    
+    // Simulate processing delay
+    await new Promise(resolve => setTimeout(resolve, 100))
+    
+    return NextResponse.json(
+      { 
+        ok: true,
+        message: 'Message sent successfully! I\'ll get back to you within 24 hours.'
+      },
+      { status: 200 }
+    )
     
   } catch (error) {
-    console.error("Contact form error:", error);
-    return new Response(JSON.stringify({ ok: false, error: "Internal server error" }), { 
-      status: 500, 
-      headers: { "Content-Type": "application/json" } 
-    });
+    console.error('Contact form error:', error)
+    
+    return NextResponse.json(
+      { error: 'Internal server error. Please try again later.' },
+      { status: 500 }
+    )
   }
 }

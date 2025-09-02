@@ -1,44 +1,117 @@
 #!/bin/bash
 
-# Bash script to push portfolio to GitHub
-REPO_URL=${1:-"https://github.com/saaedimam/portfolio_site.git"}
+# Bash script to push Saaed Imam's portfolio to GitHub
+# This script will clone the repo, copy the project files, and push to main branch
 
-echo "🚀 Pushing portfolio to GitHub..."
+echo "🚀 Starting deployment of Saaed Imam's portfolio..."
+
+# Configuration
+REPO_URL="https://github.com/saaedimam/portfolio_site.git"
+REPO_DIR="repo"
+BRANCH="main"
+
+# Check if git is installed
+if ! command -v git &> /dev/null; then
+    echo "❌ Git is not installed. Please install Git first."
+    exit 1
+fi
+
+# Remove existing repo directory if it exists
+if [ -d "$REPO_DIR" ]; then
+    echo "🗑️  Removing existing repo directory..."
+    rm -rf "$REPO_DIR"
+fi
 
 # Clone the repository
 echo "📥 Cloning repository..."
-git clone $REPO_URL repo
-
-# Copy all files except the repo folder and push scripts
-echo "📋 Copying files..."
-rsync -av --exclude repo --exclude push.sh --exclude push.ps1 ./ repo/
+if ! git clone "$REPO_URL" "$REPO_DIR"; then
+    echo "❌ Failed to clone repository. Please check your GitHub access."
+    exit 1
+fi
 
 # Navigate to repo directory
-cd repo
+cd "$REPO_DIR"
 
-# Clean and add all files
+# Switch to main branch
+echo "🌿 Switching to main branch..."
+if ! git checkout "$BRANCH"; then
+    echo "❌ Failed to switch to main branch."
+    exit 1
+fi
+
+# Remove all existing files (except .git)
 echo "🧹 Cleaning repository..."
-git rm -rf . 2>/dev/null || true
-git clean -fdx 2>/dev/null || true
+find . -mindepth 1 -not -path "./.git*" -delete
 
-# Copy files again after cleaning
-echo "📋 Copying files after clean..."
-rsync -av --exclude repo --exclude push.sh --exclude push.ps1 ../ repo/
+# Copy project files (excluding repo directory and push scripts)
+echo "📁 Copying project files..."
+EXCLUDE_PATTERNS=("repo" "push.ps1" "push.sh" ".git" "node_modules" ".next" ".contentlayer")
 
-# Add all files
+# Function to check if path should be excluded
+should_exclude() {
+    local path="$1"
+    for pattern in "${EXCLUDE_PATTERNS[@]}"; do
+        if [[ "$path" == *"$pattern"* ]]; then
+            return 0  # true, should exclude
+        fi
+    done
+    return 1  # false, should not exclude
+}
+
+# Copy files from parent directory
+cd ..
+find . -mindepth 1 -not -path "./$REPO_DIR*" | while read -r item; do
+    if [ -e "$item" ] && ! should_exclude "$item"; then
+        relative_path="${item#./}"
+        dest_path="$REPO_DIR/$relative_path"
+        
+        if [ -d "$item" ]; then
+            # Create directory
+            mkdir -p "$dest_path"
+        else
+            # Copy file
+            dest_dir=$(dirname "$dest_path")
+            mkdir -p "$dest_dir"
+            cp "$item" "$dest_path"
+        fi
+    fi
+done
+
+# Navigate back to repo directory
+cd "$REPO_DIR"
+
+# Add all files to git
 echo "➕ Adding files to git..."
 git add -A
 
-# Commit with conventional commit message
+# Commit changes
 echo "💾 Committing changes..."
-git commit -m "feat: init portfolio (Next.js 14, MDX, EN-only, SEO/OG)"
+COMMIT_MESSAGE="feat: init portfolio (EN, green theme, images in all sections)
 
-# Push to main branch
+- Modern Next.js 14 portfolio with green palette
+- Responsive design with dark mode support
+- Framer Motion animations and smooth transitions
+- All sections include images/SVGs as required
+- Contact form with honeypot protection
+- SEO optimized with sitemap, robots.txt, RSS
+- PWA ready with manifest and icons
+- Ready for Vercel deployment"
+
+git commit -m "$COMMIT_MESSAGE"
+
+# Push to remote
 echo "🚀 Pushing to GitHub..."
-git push origin main
+if git push origin "$BRANCH"; then
+    echo "✅ Successfully deployed portfolio to GitHub!"
+    echo "🌐 Repository: $REPO_URL"
+    echo "📱 Ready for Vercel import!"
+else
+    echo "❌ Failed to push to GitHub. Please check your credentials."
+    exit 1
+fi
 
-echo "✅ Portfolio successfully pushed to GitHub!"
-echo "🌐 Ready for Vercel deployment at: $REPO_URL"
-
-# Navigate back to original directory
+# Go back to parent directory
 cd ..
+
+echo "🎉 Deployment complete! Your portfolio is now on GitHub."
+echo "💡 Next step: Import to Vercel from $REPO_URL"

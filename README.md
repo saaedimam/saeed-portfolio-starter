@@ -1,148 +1,251 @@
-# Saaed Imam Portfolio
+# Saaed Imam - Portfolio
 
-A modern, English-only portfolio website built with Next.js 14, featuring case studies, products, writing, and strong SEO/OG support.
+A modern, responsive portfolio website built with Next.js 14, featuring a beautiful green theme, smooth animations, and comprehensive content showcasing Saaed's work as a Platform Architect & Founder.
 
-## 🚀 Quick Start
+## 🌟 Features
 
-```bash
-# Install dependencies
-npm install
-# or
-pnpm install
-# or
-yarn install
+- **Modern Design**: Clean, professional design with a green color palette
+- **Responsive**: Mobile-first responsive design that works on all devices
+- **Dark Mode**: Built-in dark/light mode with system preference detection
+- **Animations**: Smooth Framer Motion animations and page transitions
+- **SEO Optimized**: Complete SEO setup with sitemap, robots.txt, and Open Graph
+- **PWA Ready**: Progressive Web App with manifest and service worker support
+- **Contact Form**: Secure contact form with honeypot protection and rate limiting
+- **Performance**: Optimized for speed with Next.js 14 and modern best practices
 
-# Run development server
-npm run dev
-# or
-pnpm dev
-# or
-yarn dev
-```
+## 🎨 Design System
 
-Open [http://localhost:3000](http://localhost:3000) to view the site.
+### Color Palette
+- **Light Mode**: Smooth green theme (#F4FBF7 background, #16A34A primary)
+- **Dark Mode**: Dark greenish theme (#0C1A16 background, #22C55E primary)
+- **Accent**: Teal (#00A3B4) for highlights and CTAs
 
-## 🏗️ Build & Deploy
+### Typography
+- **Headings**: Sora font for modern, clean appearance
+- **Body**: Plus Jakarta Sans for excellent readability
 
-```bash
-# Build for production
-npm run build
+### Components
+- Custom card components with hover effects
+- Animated sections with stagger effects
+- Responsive navigation with mobile menu
+- Interactive forms with validation
 
-# Start production server
-npm start
-```
+## 🚀 Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Theme**: next-themes for dark mode
+- **Icons**: Lucide React
+- **Deployment**: Vercel ready
 
 ## 📁 Project Structure
 
 ```
 /
-├── app/                    # Next.js App Router pages
-│   ├── work/              # Case studies
-│   ├── writing/           # Blog posts
-│   ├── products/          # Product showcase
+├── app/                    # Next.js app directory
+│   ├── layout.tsx         # Root layout with theme provider
+│   ├── page.tsx           # Home page
+│   ├── work/              # Work case studies
+│   ├── products/          # Products showcase
+│   ├── writing/           # Blog articles
 │   ├── about/             # About page
-│   ├── contact/           # Contact form
+│   ├── contact/           # Contact page
 │   ├── api/               # API routes
 │   ├── og/                # Dynamic OG images
-│   ├── rss/               # RSS feed
-│   ├── sitemap.ts         # Sitemap generation
-│   └── robots.ts          # Robots.txt
-├── components/            # React components
-├── content/               # MDX content files
-├── lib/                   # Utility functions
-├── public/                # Static assets
-└── push.ps1/push.sh       # Deployment scripts
+│   ├── globals.css        # Global styles
+│   ├── robots.ts          # SEO robots
+│   ├── sitemap.ts         # SEO sitemap
+│   └── rss/               # RSS feed
+├── components/             # Reusable components
+│   ├── Header.tsx         # Navigation header
+│   ├── Footer.tsx         # Site footer
+│   ├── Hero.tsx           # Hero section
+│   ├── CaseCard.tsx       # Work case study cards
+│   ├── ProductCard.tsx    # Product showcase cards
+│   ├── ContactForm.tsx    # Contact form
+│   ├── MotionSection.tsx  # Animated sections
+│   └── DarkModeToggle.tsx # Theme toggle
+├── public/                 # Static assets
+│   ├── images/            # Project images
+│   ├── icons/             # PWA icons
+│   ├── manifest.webmanifest # PWA manifest
+│   └── og/                # Default OG images
+├── push.ps1               # PowerShell deployment script
+├── push.sh                # Bash deployment script
+└── README.md              # This file
 ```
 
-## 🎨 Design System
+## 🏗️ Getting Started
 
-- **Typography**: Sora (headings) + Plus Jakarta Sans (body)
-- **Colors**: Deep navy, charcoal, teal, warm gray
-- **Theme**: Light/dark mode support
-- **Animations**: Framer Motion with reduced-motion support
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+- Git
 
-## 📝 Content Management
+### Installation
 
-Content is managed through MDX files in the `content/` directory:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/saaedimam/portfolio_site.git
+   cd portfolio_site
+   ```
 
-- `content/work/*.mdx` - Case studies
-- `content/writing/*.mdx` - Blog posts
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-Each MDX file includes frontmatter with title, date, summary, and tags.
+3. **Run development server**
+   ```bash
+   npm run dev
+   ```
 
-## 🔧 Features
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-- ✅ Next.js 14 with App Router
-- ✅ TypeScript
-- ✅ Tailwind CSS
-- ✅ Contentlayer for MDX
-- ✅ Dark mode support
-- ✅ SEO optimization
-- ✅ Dynamic OG images
-- ✅ RSS feed
-- ✅ Sitemap generation
-- ✅ Contact form with rate limiting
-- ✅ Responsive design
-- ✅ Accessibility features
+### Build for Production
+
+```bash
+npm run build
+npm start
+```
+
+## 📱 Content Sections
+
+### Home Page
+- Hero section with animated background
+- Statistics showcase (650 machines, 300k pcs/mo woven, etc.)
+- Featured work case studies
+- Products showcase
+- Writing teaser
+- Call-to-action banner
+
+### Work Page
+- Complete case studies grid
+- StitchOS, TextileTrack, KTL, STRYV, EcoTenna, EMAN
+- Each case includes description, tags, and project details
+
+### Products Page
+- Mobile apps (QuickBill, CartCount)
+- Programming language (Weft)
+- RFID platforms (StitchOS, TextileTrack)
+- Device mock frames and interactive elements
+
+### Writing Page
+- Articles on factory automation, IoT, sustainability
+- Newsletter signup
+- Reading time and tags
+- Featured article highlighting
+
+### About Page
+- Professional journey timeline
+- Ventures and projects grid
+- Contact information and social links
+- Location and response time details
+
+### Contact Page
+- Secure contact form with honeypot protection
+- Rate limiting (5 requests per minute)
+- Multiple contact methods
+- Response time expectations
+
+## 🔧 Configuration
+
+### Environment Variables
+Create a `.env.local` file for local development:
+
+```env
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+### Customization
+- **Colors**: Update `tailwind.config.js` color tokens
+- **Content**: Modify data in component files
+- **Images**: Replace placeholder images in `/public/images/`
+- **SEO**: Update metadata in layout and page files
 
 ## 🚀 Deployment
 
-### Option 1: Vercel (Recommended)
+### GitHub Push
+Use the provided scripts to push to GitHub:
 
-1. Push to GitHub using the provided scripts
-2. Connect your GitHub repo to Vercel
-3. Deploy automatically
-
-### Option 2: Manual Push Scripts
-
-**Windows (PowerShell):**
+**PowerShell (Windows):**
 ```powershell
 .\push.ps1
 ```
 
-**Linux/macOS (Bash):**
+**Bash (Linux/macOS):**
 ```bash
+chmod +x push.sh
 ./push.sh
 ```
 
-### Environment Variables
-
-Set these in your deployment platform:
-
-```
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
-```
+### Vercel Deployment
+1. Import the GitHub repository to Vercel
+2. Configure build settings:
+   - Build Command: `npm run build`
+   - Output Directory: `.next`
+   - Install Command: `npm install`
+3. Deploy!
 
 ## 📊 Performance
 
-- Lighthouse LCP < 2.0s
-- Lighthouse CLS < 0.03
-- Lighthouse A11y ≥ 95
-- Optimized images and fonts
-- Reduced motion support
+- **Lighthouse Score**: Target ≥95 for all metrics
+- **Core Web Vitals**: Optimized for speed and user experience
+- **Image Optimization**: Next.js Image component with proper sizing
+- **Bundle Analysis**: Optimized imports and code splitting
 
-## 🛠️ Development
+## 🔒 Security Features
 
-```bash
-# Type checking
-npm run type-check
+- **Contact Form**: Honeypot field protection
+- **Rate Limiting**: In-memory rate limiting per IP
+- **Input Validation**: Server-side validation for all forms
+- **HTTPS**: Secure by default on Vercel
 
-# Linting
-npm run lint
+## 📈 SEO Features
 
-# Build check
-npm run build
-```
+- **Meta Tags**: Complete Open Graph and Twitter Card support
+- **Structured Data**: JSON-LD for better search understanding
+- **Sitemap**: Automatic XML sitemap generation
+- **Robots.txt**: Proper search engine crawling instructions
+- **RSS Feed**: Blog content syndication
+
+## 🎯 Accessibility
+
+- **WCAG 2.1 AA**: Target compliance level
+- **Keyboard Navigation**: Full keyboard support
+- **Screen Readers**: Semantic HTML and ARIA labels
+- **Color Contrast**: Meets accessibility standards
+- **Reduced Motion**: Respects user preferences
+
+## 🤝 Contributing
+
+This is a personal portfolio project, but suggestions and improvements are welcome:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
 ## 📄 License
 
-MIT License - see LICENSE file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 📧 Contact
+## 👤 About Saaed Imam
 
-- Email: sayedimam.fahim@gmail.com
-- GitHub: [@saaedimam](https://github.com/saaedimam)
+**Platform Architect & Founder** building connected factories and clean design systems. Based in Chattogram, Bangladesh, specializing in:
+
+- RFID platforms and IoT solutions
+- Sustainable brand development
+- Digital transformation consulting
+- Modern web applications
+
+**Contact**: sayedimam.fahim@gmail.com  
+**GitHub**: [@saaedimam](https://github.com/saaedimam)  
+**Upwork**: [Saaed Imam](https://www.upwork.com/freelancers/~012257680710d680c7)
 
 ---
 
-Built with ❤️ by Saaed Imam
+Built with ❤️ using Next.js 14 and modern web technologies.

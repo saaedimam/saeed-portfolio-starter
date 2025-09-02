@@ -1,28 +1,70 @@
-import { allPosts, allWorks } from "@/lib/data";
-import { MetadataRoute } from "next";
+import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://saaedimam.com";
-  const staticRoutes = ["", "/work", "/products", "/writing", "/about", "/contact"].map((p) => ({
-    url: `${base}${p || "/"}`,
-    lastModified: new Date().toISOString(),
-    changeFrequency: (p === "" ? "weekly" : "monthly") as "weekly" | "monthly",
-    priority: p === "" ? 1 : 0.8,
-  }));
+  const baseUrl = 'https://saaedimam.com'
   
-  const workRoutes = allWorks.map((w) => ({ 
-    url: `${base}${w.url}`, 
-    lastModified: w.date,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
-  
-  const postRoutes = allPosts.map((p) => ({ 
-    url: `${base}${p.url}`, 
-    lastModified: p.date,
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
-  
-  return [...staticRoutes, ...workRoutes, ...postRoutes];
+  return [
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 1,
+    },
+    {
+      url: `${baseUrl}/work`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/products`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/writing`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    // Work case studies
+    {
+      url: `${baseUrl}/work/stitchos`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/work/textiletrack`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/work/ktl`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    // Writing articles
+    {
+      url: `${baseUrl}/writing/factory-first-signal`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+  ]
 }

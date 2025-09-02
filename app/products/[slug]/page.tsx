@@ -3,8 +3,9 @@ import { notFound } from "next/navigation";
 import Prose from "@/components/Prose";
 import { generateMetadata as generateSEOMetadata } from "@/lib/seo";
 
-export const generateStaticParams = async () =>
-  allProducts.map(p => ({ slug: p._raw.flattenedPath.replace("products/", "") }));
+export function generateStaticParams() {
+  return allProducts.map(p => ({ slug: p._raw.flattenedPath.replace("products/", "") }));
+}
 export const dynamicParams = false;
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {

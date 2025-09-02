@@ -1,4 +1,7 @@
 import { rateLimit } from "@/lib/rate-limit";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY || "");
 
 export async function POST(req: Request) {
   try {
@@ -31,19 +34,25 @@ export async function POST(req: Request) {
       });
     }
 
-    // TODO: Integrate with Resend/SMTP here
-    // For now, just log the contact form submission
-    console.log("Contact form submission:", {
-      name: body.name,
-      email: body.email,
-      message: body.message,
-      timestamp: new Date().toISOString(),
-      ip: clientIP
+    const { error: sendError } = await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
+      to: process.env.RESEND_TO_EMAIL || "owner@example.com",
+      subject: `New contact form submission from ${body.name}`,
+      replyTo: body.email,
+      text: body.message
     });
 
-    return new Response(JSON.stringify({ ok: true }), { 
-      status: 200, 
-      headers: { "Content-Type": "application/json" } 
+    if (sendError) {
+      console.error("Failed to send contact form email:", sendError);
+      return new Response(JSON.stringify({ ok: false, error: "Failed to send email" }), {
+        status: 500,
+        headers: { "Content-Type": "application/json" }
+      });
+    }
+
+    return new Response(JSON.stringify({ ok: true }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" }
     });
     
   } catch (error) {

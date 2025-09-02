@@ -64,7 +64,7 @@ export default function Page() {
         <h2 className="text-2xl font-heading font-semibold text-navy dark:text-white mb-4">Get in Touch</h2>
         <p className="text-charcoal/70 dark:text-warm/70 mb-4">
           Interested in RFID systems, factory automation, or building connected products? 
-          Let's discuss how we can work together.
+            Let&apos;s discuss how we can work together.
         </p>
         <a 
           href="/contact" 

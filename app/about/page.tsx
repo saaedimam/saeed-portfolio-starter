@@ -268,7 +268,7 @@ export default function AboutPage() {
                     </h3>
                     <span className={`px-2 py-1 text-xs font-medium rounded-full ${
                       venture.status === 'Active' 
-                        ? 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400'
+                        ? 'bg-green-100 text-green-800 dark:bg-blue-900/20 dark:text-green-400'
                         : venture.status === 'Development'
                         ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-400'
                         : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400'

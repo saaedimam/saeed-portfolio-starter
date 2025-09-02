@@ -21,9 +21,9 @@ export default function Page() {
       <MotionSection className="mt-20">
         <h2 className="text-2xl font-heading font-semibold mb-6 text-navy dark:text-white">Products</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <ProductCard title="StitchOS" summary="RFID + SaaS platform for textiles." href="/products" tags={["Next.js","FastAPI","Supabase"]}/>
-          <ProductCard title="Weft (Lang)" summary="Security-first language for StitchOS effects." href="/products" tags={["LLVM","WASM","VM"]}/>
-          <ProductCard title="QuickBill" summary="Your Pocket Accountant — mobile accounting." href="/products" tags={["Flutter","Supabase"]}/>
+          <ProductCard title="StitchOS" summary="RFID + SaaS platform for textiles." href="/products/stitchos" tags={["Next.js","FastAPI","Supabase"]}/>
+          <ProductCard title="Weft (Lang)" summary="Security-first language for StitchOS effects." href="/products/weft-lang" tags={["LLVM","WASM","VM"]}/>
+          <ProductCard title="QuickBill" summary="Your Pocket Accountant — mobile accounting." href="/products/quickbill" tags={["Flutter","Supabase"]}/>
         </div>
       </MotionSection>
 
